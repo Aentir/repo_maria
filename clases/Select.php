@@ -1,5 +1,5 @@
 <?php
-class Info extends Connection
+class Select extends Connection
 {
 
   public function __construct()
@@ -10,6 +10,7 @@ class Info extends Connection
   public function getInfo($value = null)
   {
 
+    //Si getInfo() recibe algún parametro (GET/POST) se lo pasará al IF, sino, entrará en el else
     if ($value) {
       //Creo la SQL que quiero lanzar
       $sql = "SELECT * FROM t_alumnos WHERE alum_nombre = ?";
@@ -26,10 +27,11 @@ class Info extends Connection
         echo $row["alum_nombre"] . " " . $row["alum_apellido1"] . " " .
           $row["alum_apellido2"] . " " . $row["alum_dni"] . "<br>";
       }
+    
     } else {
       $query = "SELECT * FROM t_alumnos";
       $result = $this->db->prepare($query);
-      $result->execute(array($value));
+      $result->execute(array());
 
       foreach ($result->fetchAll(PDO::FETCH_ASSOC) as $row) {
         echo $row["alum_nombre"] . " " . $row["alum_apellido1"] . " " .

@@ -1,8 +1,8 @@
 <?php
 include_once 'clases/Connection.php';
-include_once 'clases/Info.php';
+include_once 'clases/Select.php';
 
-$info = new Info();
+$info = new Select();
 
 // Creo que el isset es lo que te faltaba para que no diera error.
 $search = isset($_GET["alum_nombre"]) ? $_GET["alum_nombre"] : "";
@@ -34,7 +34,7 @@ $search = isset($_GET["alum_nombre"]) ? $_GET["alum_nombre"] : "";
   <tbody>
     <?= $info->getInfo($search) ?>
   </tbody>
-
+    <a href="formInsert.php">Añadir nuevo</a>
 </body>
 
 </html>
