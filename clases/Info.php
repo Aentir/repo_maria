@@ -8,12 +8,12 @@
 
         public function getInfo()
         {
-            if(empty($_GET["alum_nombre"])){
+            /*if(empty($_GET["alum_nombre"])){
                 $search = "";
             }else{
                 $search = $_GET["alum_nombre"];
-            }
-            
+            }*/
+            $search = $_GET["alum_nombre"];
             var_dump($search);
 
             //Creo la SQL que quiero lanzar
