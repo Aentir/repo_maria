@@ -24,15 +24,17 @@ $search = isset($_GET["alum_nombre"]) ? $_GET["alum_nombre"] : "";
     <input type="text" name="alum_nombre">
     <input type="submit" name="enviando" value="Enviar">
   </form>
-  <thead>
-    <tr>Nombre</tr>
-    <tr>Apellido</tr>
-    <tr>Apellido2</tr>
-    <tr>DNI</tr>
-    <br>
-  </thead>
+  <table border="1">
+      <tr>
+          <th>DNI</th>
+          <th>Nombre</th>
+          <th>Primer Apellido</th>
+          <th>Segundo Apellido</th>
+      </tr>
+        <?= $info->getInfo($search) ?>
+  </table>
   <tbody>
-    <?= $info->getInfo($search) ?>
+    
   </tbody>
     <a href="formInsert.php">Añadir nuevo</a>
 </body>
